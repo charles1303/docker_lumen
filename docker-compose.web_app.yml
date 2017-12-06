@@ -1,0 +1,15 @@
+version: '2'
+services:
+  app:
+      build: .
+      ports:
+          - 8080
+      networks:
+          - main-network
+
+      env_file:
+          - ./.env
+
+      volumes:
+          - ./docker_logs/ipay:/var/log/applications/ipay
+          - ~/storage/ipay/mysql:/var/lib/mysql
